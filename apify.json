@@ -1,0 +1,9 @@
+{
+    "actorSpecification": 1,
+    "name": "unified-zillow-scraper",
+    "version": "4.0",
+    "buildTag": "latest",
+    "environment": "production",
+    "dockerfile": "./Dockerfile"
+}
+

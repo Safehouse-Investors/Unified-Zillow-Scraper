@@ -1,0 +1,194 @@
+{
+    "title": "Unified Zillow Scraper - All-in-One Solution",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "mode": {
+            "title": "Scraping Mode",
+            "type": "string",
+            "description": "Choose the scraping mode for your needs",
+            "enum": ["search", "zipcode", "details", "comprehensive"],
+            "enumTitles": [
+                "Search Mode (Zillow search URLs)", 
+                "Zipcode Mode (Search by zip codes)", 
+                "Details Mode (Specific property URLs)", 
+                "Comprehensive Mode (All functionality)"
+            ],
+            "default": "comprehensive"
+        },
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "Zillow URLs to scrape (required for search and details modes)",
+            "editor": "requestListSources",
+            "example": [
+                {"url": "https://www.zillow.com/homes/for_sale/90210/"},
+                {"url": "https://www.zillow.com/homedetails/123-Main-St/123456_zpid/"}
+            ]
+        },
+        "zipCodes": {
+            "title": "Zip Codes",
+            "type": "array",
+            "description": "List of zip codes to search for properties (required for zipcode and comprehensive modes)",
+            "editor": "stringList",
+            "example": ["90210", "10001", "33101"]
+        },
+        "searchFilters": {
+            "title": "Search Filters",
+            "type": "object",
+            "description": "Additional search filters to apply (for zipcode and comprehensive modes)",
+            "properties": {
+                "minPrice": {
+                    "title": "Minimum Price",
+                    "type": "integer",
+                    "description": "Minimum property price",
+                    "minimum": 0
+                },
+                "maxPrice": {
+                    "title": "Maximum Price", 
+                    "type": "integer",
+                    "description": "Maximum property price",
+                    "minimum": 0
+                },
+                "propertyType": {
+                    "title": "Property Type",
+                    "type": "string",
+                    "description": "Type of property to search for",
+                    "enum": ["all", "houses", "condos", "townhomes", "multi-family", "lots"],
+                    "enumTitles": ["All Types", "Houses", "Condos", "Townhomes", "Multi-Family", "Lots/Land"],
+                    "default": "all"
+                },
+                "daysOnMarket": {
+                    "title": "Days on Market",
+                    "type": "string",
+                    "description": "Filter by how long properties have been listed",
+                    "enum": ["any", "1", "7", "14", "30", "90"],
+                    "enumTitles": ["Any", "1 day", "7 days", "14 days", "30 days", "90+ days"],
+                    "default": "any"
+                }
+            }
+        },
+        "keywords": {
+            "title": "Fixer-Upper Keywords",
+            "type": "array",
+            "description": "Additional keywords to search for in property descriptions. The actor includes built-in fixer-upper keywords but you can add more here.",
+            "editor": "stringList",
+            "default": [],
+            "example": ["custom keyword", "another term"],
+            "prefill": [
+                "fixer-upper",
+                "needs TLC", 
+                "handyman special",
+                "as-is",
+                "investor special",
+                "needs work",
+                "needs repairs",
+                "tear down",
+                "cash only",
+                "motivated seller",
+                "needs updating",
+                "needs renovation", 
+                "needs remodeling",
+                "needs improvement",
+                "bring your contractor",
+                "great potential",
+                "diamond in the rough",
+                "unfinished",
+                "uninhabitable",
+                "project house",
+                "needs love",
+                "needs restoration",
+                "sold as-is",
+                "rehab opportunity",
+                "needs complete rehab",
+                "fixer",
+                "distressed",
+                "needs attention",
+                "not move-in ready",
+                "outdated",
+                "needs new roof",
+                "needs foundation repair",
+                "water damage",
+                "fire damage",
+                "mold",
+                "repairs needed",
+                "priced to sell",
+                "bargain",
+                "must sell",
+                "below market",
+                "value add",
+                "opportunity knocks",
+                "make an offer"
+            ]
+        },
+        "keywordFilterMode": {
+            "title": "Keyword Filter Mode",
+            "type": "string",
+            "description": "How to apply keyword filtering",
+            "enum": ["all", "any", "none"],
+            "enumTitles": ["All keywords must match", "Any keyword can match", "No keyword filtering"],
+            "default": "any"
+        },
+        "enableAI": {
+            "title": "Enable AI-Powered Selector Updates",
+            "type": "boolean",
+            "description": "Enable automatic selector updates using AI when standard selectors fail",
+            "default": true
+        },
+        "maxProperties": {
+            "title": "Maximum Properties per Zip Code",
+            "type": "integer",
+            "description": "Maximum number of properties to extract per zip code (zipcode mode only)",
+            "minimum": 1,
+            "default": 100
+        },
+        "maxPages": {
+            "title": "Maximum Search Pages",
+            "type": "integer",
+            "description": "Maximum number of search result pages to process per zip code (zipcode mode only)",
+            "minimum": 1,
+            "default": 10
+        },
+        "maxItems": {
+            "title": "Maximum Total Items",
+            "type": "integer",
+            "description": "Maximum total number of properties to scrape across all sources",
+            "minimum": 1
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Proxy settings to avoid getting blocked",
+            "editor": "proxy",
+            "default": {"useApifyProxy": true}
+        },
+        "includeImages": {
+            "title": "Include Property Images",
+            "type": "boolean",
+            "description": "Extract and include property image URLs",
+            "default": true
+        },
+        "includeContactInfo": {
+            "title": "Include Contact Information", 
+            "type": "boolean",
+            "description": "Extract agent contact information (phone, email)",
+            "default": true
+        },
+        "testMode": {
+            "title": "Test Mode",
+            "type": "boolean", 
+            "description": "Enable detailed logging and error tracking for debugging",
+            "default": false
+        },
+        "discoveryMode": {
+            "title": "Property Discovery Mode",
+            "type": "string",
+            "description": "How comprehensive should the property discovery be (zipcode and comprehensive modes)",
+            "enum": ["basic", "enhanced", "comprehensive"],
+            "enumTitles": ["Basic (single search per zip)", "Enhanced (multiple search strategies)", "Comprehensive (all discovery methods)"],
+            "default": "enhanced"
+        }
+    },
+    "required": []
+}
+
