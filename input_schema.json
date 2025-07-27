@@ -55,16 +55,14 @@
                     "type": "string",
                     "description": "Type of property to search for",
                     "enum": ["all", "houses", "condos", "townhomes", "multi-family", "lots"],
-                    "enumTitles": ["All Types", "Houses", "Condos", "Townhomes", "Multi-Family", "Lots/Land"],
-                    "default": "all"
+                    "enumTitles": ["All Types", "Houses", "Condos", "Townhomes", "Multi-Family", "Lots/Land"]
                 },
                 "daysOnMarket": {
                     "title": "Days on Market",
                     "type": "string",
                     "description": "Filter by how long properties have been listed",
                     "enum": ["any", "1", "7", "14", "30", "90"],
-                    "enumTitles": ["Any", "1 day", "7 days", "14 days", "30 days", "90+ days"],
-                    "default": "any"
+                    "enumTitles": ["Any", "1 day", "7 days", "14 days", "30 days", "90+ days"]
                 }
             }
         },
@@ -126,8 +124,7 @@
             "type": "string",
             "description": "How to apply keyword filtering",
             "enum": ["all", "any", "none"],
-            "enumTitles": ["All keywords must match", "Any keyword can match", "No keyword filtering"],
-            "default": "any"
+            "enumTitles": ["All keywords must match", "Any keyword can match", "No keyword filtering"]
         },
         "enableAI": {
             "title": "Enable AI-Powered Selector Updates",
@@ -185,8 +182,7 @@
             "type": "string",
             "description": "How comprehensive should the property discovery be (zipcode and comprehensive modes)",
             "enum": ["basic", "enhanced", "comprehensive"],
-            "enumTitles": ["Basic (single search per zip)", "Enhanced (multiple search strategies)", "Comprehensive (all discovery methods)"],
-            "default": "enhanced"
+            "enumTitles": ["Basic (single search per zip)", "Enhanced (multiple search strategies)", "Comprehensive (all discovery methods)"]
         }
     },
     "required": []
