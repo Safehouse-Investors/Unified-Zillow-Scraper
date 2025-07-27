@@ -186,6 +186,28 @@
             "enumTitles": ["Basic (single search per zip)", "Enhanced (multiple search strategies)", "Comprehensive (all discovery methods)"]
         }
     },
+    "dependencies": {
+        "mode": {
+            "oneOf": [
+                {
+                    "properties": { "mode": { "const": "search" } },
+                    "required": ["startUrls"]
+                },
+                {
+                    "properties": { "mode": { "const": "details" } },
+                    "required": ["startUrls"]
+                },
+                {
+                    "properties": { "mode": { "const": "zipcode" } },
+                    "required": ["zipCodes"]
+                },
+                {
+                    "properties": { "mode": { "const": "comprehensive" } },
+                    "required": ["zipCodes"]
+                }
+            ]
+        }
+    },
     "required": []
 }
 
