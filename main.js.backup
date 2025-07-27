@@ -7,23 +7,7 @@ import { URLGenerator } from './url-generator.js';
 await Actor.init();
 
 // Get the actor's input
-// Get the actor's input with fallback
-let input = await Actor.getInput() || {};
-
-// If input is still null/empty, try reading from file
-if (!input || Object.keys(input).length === 0) {
-    try {
-        const fs = await import('fs/promises');
-        const path = await import('path');
-        const inputPath = path.join(process.cwd(), 'apify_storage', 'key_value_stores', 'default', 'INPUT.json');
-        const inputData = await fs.readFile(inputPath, 'utf8');
-        input = JSON.parse(inputData);
-    } catch (error) {
-        console.log('Could not read INPUT.json, using defaults');
-        input = {};
-    }
-}
-
+const input = await Actor.getInput();
 const {
     mode = 'comprehensive',
     startUrls = [],

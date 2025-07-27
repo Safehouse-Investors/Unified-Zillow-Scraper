@@ -13,8 +13,8 @@
         "lodash": "^4.17.21"
     },
     "scripts": {
-        "start": "node src/main.js",
-        "test": "node src/test-unified.js"
+        "start": "node main.js",
+        "test": "node test-unified.js"
     },
     "author": "Unified Zillow Scraper",
     "license": "ISC"

@@ -1,0 +1,18 @@
+﻿{
+  "mode": "comprehensive",
+  "zipCodes": ["85001", "89101", "33601"],
+  "maxPages": 3,
+  "minPrice": 75000,
+  "maxPrice": 300000,
+  "propertyTypes": ["house"],
+  "searchFilters": {
+    "fixerUpper": true,
+    "foreclosure": true,
+    "needsWork": true
+  },
+  "outputFormat": "json",
+  "headless": true,
+  "maxConcurrency": 2,
+  "maxProperties": 100,
+  "includeImages": true
+}
