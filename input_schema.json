@@ -37,6 +37,7 @@
             "title": "Search Filters",
             "type": "object",
             "description": "Additional search filters to apply (for zipcode and comprehensive modes)",
+            "editor": "object",
             "properties": {
                 "minPrice": {
                     "title": "Minimum Price",
