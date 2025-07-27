@@ -10,4 +10,4 @@ RUN npm install --only=production
 COPY . .
 
 # Run the actor
-CMD [ "npm", "start" ] 
+CMD [ "npm", "start" ]
